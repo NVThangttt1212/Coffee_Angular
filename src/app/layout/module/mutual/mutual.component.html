@@ -1,0 +1,23 @@
+<main class="mutual">
+  <section class="mutual__heading">
+    <h1 class="mutual__heading--text">Cộng Đồng</h1>
+  </section>
+  <section class="mutual__content">
+    <div class="mutual__content--list row">
+      <div class="mutual__content--item col-4" *ngFor="let item of api">
+        <div class="mutual__content--item-img">
+          <img src="{{item.img}} " alt="{{item.title}}">
+        </div>
+        <div class="mutual__content--item-date">
+          <div class="mutual__content--item-title">
+            <h3>{{item.title}}</h3>
+          </div>
+          <div class="mutual__content--item-date2">
+            <i class="far fa-calendar"></i>
+            <span>{{item.date}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

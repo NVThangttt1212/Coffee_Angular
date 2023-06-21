@@ -1,0 +1,98 @@
+<section class="hot">
+  <img src="./assets/img/best.jpg" alt="hotsale">
+</section>
+<section class="content__home row">
+  <div class="content__home--left col">
+    <h3>QUÁN MỚI</h3>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <h4>Hàm cá mập</h4>
+          <h5>721 Huỳnh Tấn Phát, Phường Phú Thuận, Quận 7, Tp. Hồ Chí Minh</h5>
+          <h4>tìm đường <i class="fas fa-chevron-right"></i></h4>
+        </div>
+        <div class="carousel-item">
+          <h4>Hồ Điều Hòa</h4>
+          <h5>721 Huỳnh Tấn Phát, Phường Phú Thuận, Quận 7, Tp. Hồ Chí Minh</h5>
+          <h4>tìm đường <i class="fas fa-chevron-right"></i></h4>
+        </div>
+        <div class="carousel-item">
+          <h4>Hồ Tây</h4>
+          <h5>721 Huỳnh Tấn Phát, Phường Phú Thuận, Quận 7, Tp. Hồ Chí Minh</h5>
+          <h4>tìm đường <i class="fas fa-chevron-right"></i></h4>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="content__home--right col">
+    <div class="content__home--right-content">
+      <div class="content__home--right-flex">
+        <h2>TIN MỚI NHẤT</h2>
+        <a href="">xem toàn bộ <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="content__home--right-news">
+        <div class="content__home--news-img">
+          <img src="./assets/img/new1.jpg" alt="new1">
+        </div>
+        <div class="content__home--news-content">
+          <h3>
+            <a href="#">MỚI! TRÀ TUYẾT HIGHLANDS COFFEE</a>
+          </h3>
+          <div class="content__home--news-date">
+            <i class="far fa-calendar"></i>
+            <span>17/05/2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="content__home--right-news">
+        <div class="content__home--news-img">
+          <img src="./assets/img/new2.jpg" alt="new2">
+        </div>
+        <div class="content__home--news-content">
+          <h3>
+            <a href="#">MỚI! TRÀ TUYẾT HIGHLANDS COFFEE</a>
+          </h3>
+          <div class="content__home--news-date">
+            <i class="far fa-calendar"></i>
+            <span>17/05/2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="content__home--right-news">
+        <div class="content__home--news-img">
+          <img src="./assets/img/new3.png" alt="new3">
+        </div>
+        <div class="content__home--news-content">
+          <h3>
+            <a href="#">MỚI! TRÀ TUYẾT HIGHLANDS COFFEE</a>
+          </h3>
+          <div class="content__home--news-date">
+            <i class="far fa-calendar"></i>
+            <span>17/05/2023</span>
+          </div>
+        </div>
+      </div>
+      <div class="content__home--right-formRf">
+        <form class="formEmail" [formGroup]="emailForm" (ngSubmit)="submit()">
+          <div class="row-control">
+              <input matInput placeholder="Nhập Email của bạn..." formControlName="email"
+              />
+            <mat-error class="error" *ngIf="(emailForm.get('email')?.invalid && (emailForm.get('email')?.dirty || emailForm.get('email')?.touched)) || (emailForm.get('email')?.value && emailForm.get('email')?.errors?.['pattern'])">
+              <span *ngIf="emailForm?.get('email')?.hasError('required')">Email không được bỏ trống</span>
+              <span *ngIf="emailForm?.get('email')?.hasError('minlength')">Độ dài tối thiểu là 6 ký tự</span>
+              <span *ngIf="emailForm?.get('email')?.hasError('pattern')">Không chứa dấu</span>
+            </mat-error>
+          </div>
+          <div class="row-control row-actions">
+            <button mat-raised-button type="submit" [disabled]="emailForm.invalid">Gửi</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>

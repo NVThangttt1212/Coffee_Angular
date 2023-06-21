@@ -1,0 +1,18 @@
+.container{
+  padding-top: 40px;
+  .header{
+    h1{
+      font-size: 45px;
+      color: #53382c;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+  }
+  .content{
+    padding: 0 15px;
+    .searchShop{
+      display: flex;
+
+    }
+  }
+}

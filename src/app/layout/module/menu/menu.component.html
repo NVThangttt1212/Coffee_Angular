@@ -1,0 +1,22 @@
+<div class="menu">
+  <section class="section" *ngFor="let item of itemsMenu"
+           [style.background]="'url(' + item.backgroudImg + ') center / cover no-repeat'">
+    <div class="section__text" [ngClass]="{'animation': isAnimation}">
+      <div class="section__text--heading">
+        <h3 [ngStyle]="{'color': '#' + item.colorText}">{{item.title}}</h3>
+      </div>
+      <div class="section__text--decs">
+        <p [ngStyle]="{'color': '#' + item.colorText}">{{item.description}}</p>
+      </div>
+      <div class="section__text--btn">
+        <button [routerLink]="['/detail', item.id]"
+                [ngStyle]="{'color': '#' + item.colorText, 'border': 'solid 1px #' + item.colorText}">
+                Khám Phá Thêm</button>
+      </div>
+    </div>
+    <div class="section__img">
+      <img src="{{item.img}}" alt="cà phê hightland">
+    </div>
+  </section>
+  <app-scroll-top></app-scroll-top>
+</div>

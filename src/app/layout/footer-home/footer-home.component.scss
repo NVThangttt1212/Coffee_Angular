@@ -1,0 +1,59 @@
+.footer{
+  background-color: #53382c;
+  padding: 18px 0 25px;
+  display: flex;
+  align-items: center;
+  .footer__content{
+    display: flex;
+    align-items: center;
+    section{
+      margin-left: 20px;
+      &:hover>a{
+        text-decoration: none;
+        color:#f1bc7a;
+      }
+
+    }
+    .socialFoot{
+      display: flex;
+      .socialFootIcon{
+        overflow: hidden;
+        margin-right: 6px;
+        width: 25px;
+        height: 25px;
+        i{
+          transition: transform 0.3s;
+          transform-origin: center;
+          cursor: pointer;
+          font-size: 22px;
+          color: #fff;
+          &:hover{
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+    .copyRight{
+      a{
+
+        cursor: pointer;
+        color: #fff;
+        margin-bottom: 0;
+      }
+    }
+    .linkFooter{
+      cursor: pointer;
+      display: flex;
+      i{
+        display: flex;
+        align-items: center;
+        margin-right: 6px;
+        color: #fff;
+      }
+      a{
+        margin-bottom: 0;
+        color: #fff;
+      }
+    }
+  }
+}

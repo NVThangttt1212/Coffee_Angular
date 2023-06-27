@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { FooterHomeRoutingModule } from './footer-home-routing.module';
 import { FooterHomeComponent} from "./footer-home.component";
 
@@ -8,10 +7,9 @@ import { FooterHomeComponent} from "./footer-home.component";
 @NgModule({
     declarations: [
         FooterHomeComponent
-
     ],
     exports: [
-        FooterHomeComponent
+
     ],
     imports: [
         CommonModule,

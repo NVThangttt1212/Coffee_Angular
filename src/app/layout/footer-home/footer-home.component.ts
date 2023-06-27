@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './footer-home.component.html',
   styleUrls: ['./footer-home.component.scss']
 })
-export class FooterHomeComponent {
+export class FooterHomeComponent{
 
 }

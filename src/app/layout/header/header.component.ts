@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Router} from "@angular/router";
-import {AuthService} from "../../shared/servic/auth.service";
-import {ApiService} from "../../shared/servic/api.service";
+import {AuthService} from "../../../shared/servic/auth.service";
+import {ApiService} from "../../../shared/servic/api.service";
 
 @Component({
   selector: 'app-header',

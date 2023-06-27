@@ -7,44 +7,45 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit,AfterViewInit{
+export class DetailsComponent implements OnInit, AfterViewInit{
   @ViewChild('carousel', { static: false }) carousel!: ElementRef;
   @ViewChild('itemtest', { static: true }) itemContainer!: ElementRef;
-
-  itemId!: string;
+  itemId!: number;
   item: any;
-  details: any[] = [];
-  hotDetail: any[] = [];
-  teaDetail: any[] = [];
-  isPageLoaded = false;
-
+  details!: any[];
+  productData: any;
+  itemsToShow: number = 8;
+  isAllItemsShown: boolean = false;
+  isAnimation: boolean = false;
   constructor(private route: ActivatedRoute,
-              private ApiServic : ApiService,
-              private elementRef: ElementRef,
-              private renderer: Renderer2) {}
+              private ApiServic : ApiService) {}
+
   ngOnInit() {
-    this.details = this.ApiServic.apimenu.details;
-    this.hotDetail = this.ApiServic.apimenu.hotDetail;
-    this.teaDetail = this.ApiServic.apimenu.teaDetail;
+    this.details = this.ApiServic.API.apiProduct;
     this.route.params.subscribe(params =>{
-      this.itemId = params['id']
-      this.ApiServic.apimenu.getDataById(+this.itemId).subscribe((data: any) => {
-        this.item = data;
-      });
+      this.itemId = +params['id']
+      this.ApiServic.API.apimenu.getDataById(this.itemId).subscribe(
+        (data:any) => {
+          this.productData = data;
+        }
+      );
     })
   }
   ngAfterViewInit() {
-      this.isPageLoaded = true;
+    this.isAnimation = true
   }
 
-  scrollNext() {
-
+  loadMoreItems() {
+    this.itemsToShow += 8;
+    if (this.itemsToShow >= this.details.length) {
+      this.isAllItemsShown = true;
+    }
   }
-
-  scrollPrev() {
-
+  loadLestItems(){
+    this.itemsToShow -= 8;
+    if(this.itemsToShow === 8 ){
+      this.isAllItemsShown = false;
+    }
   }
-
-
 }
 

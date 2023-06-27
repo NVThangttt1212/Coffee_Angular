@@ -2,6 +2,12 @@ interface MenuItem {
   title: string;
   items: string[];
 }
+interface typeDetail{
+  id: number,
+  title: string,
+  price: string,
+  image:string
+}
 
 interface ApiMenu {
   details: { title: string; image: string; price: string; active:boolean}

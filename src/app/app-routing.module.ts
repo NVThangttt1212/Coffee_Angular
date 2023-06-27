@@ -4,7 +4,9 @@ import { HomePageComponent } from "./layout/home-page/home-page.component";
 import { SigninComponent} from "./layout/module/signin/signin.component";
 import {  BuyComponent} from "./layout/module/buy/buy.component";
 import { AuthGuard} from "./shared/servic/AuthGuard";
-import {DetailsComponent} from "./layout/module/menu/details/details.component";
+import { DetailsComponent} from "./layout/module/menu/details/details.component";
+import { DetailProductComponent} from "./layout/module/menu/details/detail-product/detail-product.component";
+import {CartComponent} from "./layout/module/cart/cart.component";
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -14,9 +16,10 @@ const routes: Routes = [
   { path: 'mutual', loadChildren: () => import('./layout/module/mutual/mutual.module').then(m => m.MutualModule)},
   { path: 'about', loadChildren: () => import('./layout/module/about/about.module').then(m => m.AboutModule)},
   { path: 'signin', component: SigninComponent},
-  { path: 'buy', component: BuyComponent, canActivate: [AuthGuard]},
-  { path: 'detail/:id', component: DetailsComponent}
-
+  { path: 'buy/:id', component: BuyComponent, canActivate: [AuthGuard]}, //
+  { path: 'detail/:id', component: DetailsComponent},
+  { path: 'detailProduct/:id', component: DetailProductComponent},
+  { path: 'cart', component: CartComponent}
 ];
 
 @NgModule({

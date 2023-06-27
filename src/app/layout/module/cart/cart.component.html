@@ -1,0 +1,56 @@
+<div class="overlay" (click)="clickOverlay()"></div>
+<div class="cart open" #cart >
+  <div class="cart__content" >
+    <div class="cart__content--header">
+      <div class="cart__content--heading">
+        <h2>Giỏ Hàng</h2>
+      </div>
+      <div class="cart__content--close" (click)="clickOverlay()">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+    <div class="cart__content--Noproduct" *ngIf="!isShow">
+      <h3>Chưa có sản phẩm nào!</h3>
+    </div>
+    <div  class="cart__content--product" *ngIf="isShow">
+      <div class="cart__content--product--text">
+        <div class="cart__content--product-img">
+          <img src="assets/img/menu-PSD-bg.jpg" alt="ảnh cart">
+        </div>
+        <div class="cart__content--product-title">
+          <h3>{{productCart.title}}</h3>
+          <div class="cart__content--product-number ">
+
+            <div class="buy__content--btn-left">
+              <span>số lượng</span>
+              <input class="minus" type="button" value="-" (click)="decreaseValue()">
+              <input class="buy__content--btn-quantity" (keypress)="onKeyPress($event)" [(ngModel)]="value"
+                     (keydown)="onInputKeydown($event)">
+              <input class="plus" type="button" value="+" (click)="increaseValue()">
+            </div>
+            <div class="buy__content--btn-right">
+              <span>{{price | tien}}</span>
+            </div>
+
+          </div>
+          <div class="cart__content--product-buy">
+            <span>Bỏ đơn hàng</span>
+            <span>Thanh toán</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+  </div>
+  <div class="cart__content--footer">
+    <hr>
+    <div class="cart__content--footer-title">
+      <span>Tổng tiền:</span>
+      <span>{{price | tien}}</span>
+    </div>
+    <div class="cart__content--footer-btn">
+      <button>Thanh Toán</button>
+    </div>
+  </div>
+</div>

@@ -22,7 +22,8 @@ export class MenuComponent implements OnInit, AfterViewInit{
   isAnimation: boolean = false
 
   ngOnInit() {
-    this.itemsMenu = this.apimenuServic.apimenu.itemsMenu;
+    this.itemsMenu = this.apimenuServic.API.apimenu.itemsMenu;
+
   }
   ngAfterViewInit() {
     this.isAnimation = true

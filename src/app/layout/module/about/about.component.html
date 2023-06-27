@@ -1,1 +1,27 @@
-<p>about works!</p>
+<div class="about">
+  <section class="about__section" *ngFor="let item of apiAbout; let index = index"
+  [ngStyle]="{'background-color': '#' + item.bg}">
+    <div class="about__section--text" [ngStyle]="{'justify-content': (index + 1) % 2 === 0 ? 'flex-start' : 'flex-end'}">
+      <div class="about__section--text-content">
+        <div class="about__section--text-heading">
+          <h1 [ngStyle]="{'justify-content': (index + 1) % 2 === 0 ? 'flex-end' : 'flex-start',
+                          'color': index === 0 ? '#53382c' : '#fff'}" >{{item.title}}</h1>
+          <span [ngStyle]="{'justify-content' : (index + 1) % 2 === 0 ? 'flex-end' : 'flex-start',
+                            'color': index === 0 ? '#53382c' : '#fff'}">{{item.titleDes}}</span>
+          <p [ngStyle]="{'text-align' : (index + 1) % 2 === 0 ? 'end' : 'start'}">{{item.des}}</p>
+        </div>
+        <div class="about__section--text-btn" [ngStyle]="{'justify-content': (index + 1) % 2 === 0 ? 'flex-end' : 'flex-start'}">
+          <button [ngStyle]="{'color': index === 0 ? '#b22830' : '#fff',
+                    'border': index === 0 ? '1px solid #b22830' : '1px solid #fff'}">
+            Xem chi tiết
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="about__section--img">
+        <img src="{{item.img}}">
+    </div>
+  </section>
+  <app-scroll-top></app-scroll-top>
+</div>

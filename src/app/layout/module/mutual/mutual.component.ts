@@ -12,10 +12,10 @@ interface apiType{
   styleUrls: ['./mutual.component.scss']
 })
 export class MutualComponent implements OnInit{
-  constructor(private API: ApiService) {}
+  constructor(private apimutual: ApiService) {}
 
   api: apiType[] =[]
   ngOnInit() {
-    this.api = this.API.apiMutual
+    this.api = this.apimutual.API.apiMutual
   }
 }

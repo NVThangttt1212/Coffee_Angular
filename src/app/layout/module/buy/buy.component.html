@@ -1,6 +1,33 @@
 <div class="buy">
-  <p> Chúc mừng bạn đã vào trang mua hàng! </p>
-  <br>
-  <br>
-  <h1>đây là trang mua hàng</h1>
+  <div class="buy__container">
+    <div class="buy__main">
+      <div class="buy__main--ct">
+        <div class="buy__img">
+          <img src="{{productData.image}}" alt="">
+        </div>
+        <div class="buy__content">
+          <div class="buy__content--heading">
+            <h2>{{productData.title}}</h2>
+          </div>
+          <div class="buy__content--des">
+            <p>{{productData.des}}</p>
+          </div>
+          <div class="buy__content--btn">
+            <div class="buy__content--btn-left">
+              <input class="minus" type="button" value="-" (click)="decreaseValue()">
+              <input class="buy__content--btn-quantity" (keypress)="onKeyPress($event)" [(ngModel)]="value"
+                     (keydown)="onInputKeydown($event)">
+              <input class="plus" type="button" value="+" (click)="increaseValue()">
+            </div>
+            <button (click)="clickAddProduct()">Thêm vào giỏ hàng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buy__review">
+    <h2>tổng tiền : {{SizeValuePrive | tien}} VNĐ</h2>
+  </div>
+  </div>
+
+
 </div>

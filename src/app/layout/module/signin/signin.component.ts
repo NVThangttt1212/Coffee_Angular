@@ -18,6 +18,7 @@ export class SigninComponent implements OnInit{
   constructor(private fb: FormBuilder,
               private  apiFrom: AuthService,
               private  route: Router,
+              private router: ActivatedRoute,
               private  snackbar: MatSnackBar) {}
 
   ngOnInit(): void {
@@ -52,7 +53,7 @@ export class SigninComponent implements OnInit{
       setTimeout(()=>{
         if (value.username === 'admin' && value.password === '12345'){
           this.showToastSuc()
-          this.route.navigate(['/buy'])
+          window.history.back();
           this.apiFrom.setShow(true)
         }else {
           this.showToastErSignIn()
@@ -72,6 +73,6 @@ export class SigninComponent implements OnInit{
     });
   }
   overlay(){
-    this.route.navigate(['/'])
+    window.history.back();
   }
 }

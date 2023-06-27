@@ -1,87 +1,30 @@
 <div class="detail">
-  <section class="detail__desc " [ngClass]="{'animation': isPageLoaded}">
-    <h1 class="detail__desc--heading">Đôi nét về : {{item.title}}</h1>
-    <p class="detail__-desc--text">{{item.des}}</p>
+  <section class="detail__desc" [ngClass]="{'animation': isAnimation}">
+    <h1 class="detail__desc--heading">Đôi nét về : {{productData.title}}</h1>
+    <p class="detail__desc--text">{{productData.des}}</p>
   </section>
   <section class="detail__categories detail__desc" scrollAnimation>
-    <h1 class="detail__desc--heading" >Các Sản Phẩm Khác:</h1>
+    <h1 class="detail__desc--heading"> Các Sản Phẩm</h1>
     <div class="detail__categories--list">
-      <div class="detail__categories--list-heading">
-        <h1 class="detail__desc--heading" style="font-style: italic; color: #b22830">Cà Phê</h1>
-        <div class="nextPrev">
-          <button (click)="scrollPrev()"> < </button>
-          <button (click)="scrollNext()"> > </button>
-        </div>
-      </div>
       <div #itemtest class="detail__categories--item">
-        <div #carousel class="carousel" *ngFor="let itemDetails of details">
-          <div class="card">
+        <div #carousel class="carousel">
+          <div class="card "  *ngFor="let item of details| slice:0:itemsToShow"
+               [routerLink]="['/detailProduct', item.id]">
             <div class="card__img">
-              <img class="card-img-top" src="{{itemDetails.image}}" alt="Card image cap">
+              <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
             </div>
             <div class="card-body">
-              <h2 class="card-title">{{itemDetails.title}}</h2>
-              <p class="card-text">giá: <span>{{itemDetails.price}}</span></p>
+              <h2 class="card-title">{{item.title}}</h2>
+              <p class="card-text">giá: <span>{{item.price.sizeS | tien}} VNĐ</span></p>
             </div>
           </div>
         </div>
-
       </div>
-      <br>
-      <hr>
+
     </div>
-  </section>
-
-
-  <section class="detail__categories detail__desc" scrollAnimation>
-    <div class="detail__categories--list">
-      <div class="detail__categories--list-heading">
-        <h1 class="detail__desc--heading" style="font-style: italic; color:#3091af">Kem</h1>
-        <div class="nextPrev">
-          <button (click)="scrollPrev()"> < </button>
-          <button (click)="scrollNext()"> > </button>
-        </div>
-      </div>
-      <div #itemtest class="detail__categories--item" >
-        <div #carousel class="carousel" *ngFor="let itemDetails of hotDetail">
-          <div class="card">
-            <div class="card__img">
-              <img class="card-img-top" src="{{itemDetails.image}}" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">{{itemDetails.title}}</h2>
-              <p class="card-text">giá: <span>{{itemDetails.price}}</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <hr>
-    </div>
-  </section>
-  <section class="detail__categories detail__desc" scrollAnimation>
-    <div class="detail__categories--list">
-      <div class="detail__categories--list-heading">
-        <h1 class="detail__desc--heading" style="font-style: italic; color: #25cb54">Trà</h1>
-        <div class="nextPrev">
-          <button (click)="scrollPrev()"> < </button>
-          <button (click)="scrollNext()"> > </button>
-        </div>
-      </div>
-      <div #itemtest class="detail__categories--item show" >
-        <div #carousel class="carousel" *ngFor="let itemDetails of teaDetail">
-          <div class="card">
-            <div class="card__img">
-              <img class="card-img-top" src="{{itemDetails.image}}" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h2 class="card-title">{{itemDetails.title}}</h2>
-              <p class="card-text">giá: <span>{{itemDetails.price}}</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <div class="detail__categories--btn">
+      <button *ngIf="!isAllItemsShown" (click)="loadMoreItems()">XEM THÊM</button>
+      <button *ngIf="isAllItemsShown" (click)="loadLestItems()">ẨN BỚT</button>
     </div>
   </section>
 </div>

@@ -14,21 +14,20 @@ export class AuthGuard implements CanActivate {
               private router: Router,
               private snackbar: MatSnackBar) { }
 
-  canActivate(
-      next: BuyComponent,
-      state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const formValue = this.authService.getFormValue()
 
-      if (!formValue){
-        this.showToastSignIn()
-        setTimeout(()=>{
 
-          this.router.navigate(['/signin'])
-        }, 2000)
-        return false
-      } else{
-          return true
-      }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    const formValue = this.authService.getFormValue();
+    if (!formValue) {
+      this.showToastSignIn();
+      setTimeout(() => {
+        this.router.navigate(['/signin']);
+      }, 2000);
+      return false;
+    } else {
+      return true;
+    }
   }
 
   showToastSignIn() {

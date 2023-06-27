@@ -1,0 +1,36 @@
+<div class="product">
+  <div class="overlay" (click)="handleClickOverlay()"></div>
+  <div class="product__content">
+    <div class="product__content--left">
+      <div class="product__content--left-des">
+        <h2>{{productData.title}}</h2>
+      </div>
+      <div class="product__content--left-img">
+        <img src="{{productData.image}}" alt="ảnh sản phẩm">
+      </div>
+    </div>
+    <div class="product__content--right">
+      <p class="product__content--right-des">
+        {{productData.des}}
+      </p>
+      <div class="product__content--right-size" #sizeElements>
+        <div>Size : </div>
+        <span class="active" (click)="handleClickSize($event, 'sizeS')">S</span>
+        <span (click)="handleClickSize($event, 'sizeM')">M</span>
+        <span (click)="handleClickSize($event, 'sizeL')">L</span>
+      </div>
+      <div class="product__content--right-buy">
+        <div>Giá : </div>
+        <span [class.activePrice]="isActive('sizeS')">{{productData.price.sizeS | tien}} VNĐ</span>
+        <span [class.activePrice]="isActive('sizeM')">{{productData.price.sizeM | tien}} VNĐ</span>
+        <span [class.activePrice]="isActive('sizeL')">{{productData.price.sizeL | tien}} VNĐ</span>
+      </div>
+      <div class="product__content--right-btn">
+        <button mat-button [routerLink]="['/buy', productData.id]" (click)="valuePrice()">Mua Ngay</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

@@ -50,9 +50,7 @@ export class ApiService {
   setSelectedSizeValue(value: number): void {
     this.selectedSizeValue.next(value);
   }
-
-
-  API: any = {
+  API: any ={
     apiProduct: [
         {
           id: 1,
@@ -348,11 +346,7 @@ export class ApiService {
           backgroudImg: '../../../../assets/img/bg33.jpg',
           description: 'Sự kết hợp hoàn hảo giữa hạt cà phê Robusta & Arabica thượng hạng được trồng trên những vùng cao nguyên Việt Nam màu mỡ, qua những bí quyết rang xay độc đáo, Highlands Coffee chúng tôi tự hào giới thiệu những dòng sản phẩm Cà phê mang hương vị đậm đà và tinh tế.'
         }
-      ],
-      getDataById(id: number): Observable<any> {
-        const item = this.itemsMenu.find(item => item.id === id);
-        return of(item)
-      }
+      ]
 
     },
     ApiNews : [
@@ -539,27 +533,68 @@ export class ApiService {
     ],
     apiAbout: [
       {
+        id: 1,
         title: 'nguồn gốc',
         bg: 'fff',
-        img: '/assets/img/sec1.jpg',
+        img: './assets/img/sec1.jpg',
         titleDes: 'CÂU CHUYỆN NÀY LÀ CỦA CHÚNG MÌNH',
-        des: 'Highlands Coffee® được thành lập vào năm 1999, bắt nguồn từ tình yêu dành cho đất Việt cùng với cà phê và cộng đồng nơi đây. Ngay từ những ngày đầu tiên, mục tiêu của chúng mình là có thể phục vụ và góp phần phát triển cộng đồng bằng cách siết chặt thêm sự kết nối và sự gắn bó giữa người với người.'
+        des: 'Highlands Coffee® được thành lập vào năm 1999, bắt nguồn từ tình yêu dành cho đất Việt cùng với cà phê và cộng đồng nơi đây. Ngay từ những ngày đầu tiên, mục tiêu của chúng mình là có thể phục vụ và góp phần phát triển cộng đồng bằng cách siết chặt thêm sự kết nối và sự gắn bó giữa người với người.',
+        desDetail:'Highlands Coffee® được thành lập vào năm 1999, bắt nguồn từ tình yêu dành cho đất Việt cùng với cà phê và cộng đồng nơi đây. Tinh thần cộng đồng luôn chảy trong ADN của mỗi người Việt mình. Ngay từ những ngày đầu tiên, mục tiêu của chúng mình là có thể phục vụ và góp phần phát triển cộng đồng bằng cách siết chặt thêm sự kết nối và sự gắn bó giữa người với người. Ngày hôm nay, với hàng trăm cửa hàng trên khắp Việt Nam và trên Thế Giới, thứ chúng mình đem lại không chỉ dừng lại ở cà phê. Chúng mình còn là nơi để thuộc về, là nơi để kết nối tất cả mọi người với nhau. Từ đó, Highlands Coffee® trở thành nơi dành riêng cho cộng đồng.\n' +
+          '\n' +
+          'Trong tương lai, chúng mình sẽ luôn thấy một Việt Nam đang phát triển và một Highlands Coffee® không ngừng cải tiến. Highlands Coffee® - điểm tụ họp của cộng đồng, nơi mọi người có thể kết nối và gắn kết với nhau bằng tình yêu dành cho cà phê, trà và các món ăn ngon. Tại Highlands Coffee®, chúng mình luôn sát cánh cùng bạn, chúng mình luôn ủng hộ bạn và chúng mình luôn đồng hành với nhau như một cộng đồng.',
+        text: 'Highlands Coffee® Là Của Chúng Mình.'
       },
       {
+        id:2,
         title: 'dịch vụ',
         bg: 'bd945d',
         titleDes: 'dịch vụ này là của chúng mình',
-        img: '/assets/img/sec2.jpg',
-        des: 'Highlands Coffee® là không gian của chúng mình nên mọi thứ ở đây đều vì sự thoải mái của chúng mình. Đừng giữ trong lòng, hãy chia sẻ với chúng mình điều bạn mong muốn để cùng nhau giúp Highlands Coffee® trở nên tuyệt vời hơn.'
+        img: './assets/img/sec2.jpg',
+        des: 'Highlands Coffee® là không gian của chúng mình nên mọi thứ ở đây đều vì sự thoải mái của chúng mình. Đừng giữ trong lòng, hãy chia sẻ với chúng mình điều bạn mong muốn để cùng nhau giúp Highlands Coffee® trở nên tuyệt vời hơn.',
+        desDetail: 'Highlands Coffee® là không gian của chúng mình nên mọi thứ ở đây đều vì sự thoải mái của chúng mình.\n' +
+          '\n' +
+          'Đừng giữ trong lòng, hãy chia sẻ với chúng mình điều bạn mong muốn để cùng nhau giúp Highlands Coffee® của chúng mình trở nên tuyệt vời hơn.',
+        text1: 'Chúng mình có thể làm gì để hoàn thiện Highlands Coffee®?',
+        text2: 'Đừng ngại chia sẻ ý kiến của bạn tại:',
+        mxh: 'Facebook: https://www.facebook.com/highlandscoffeevietnam/\n' +
+          '\n' +
+          'Hoặc bạn có thể gửi email cho chúng mình đến địa chỉ: customerservice@highlandscoffee.com.vn, chúng mình sẽ phản hồi trong thời gian sớm nhất có thể.'
       },
       {
+        id:3,
         title: 'nghề nghiệp',
         bg: '8e5a2d',
-        img: '/assets/img/sec3.jpg',
+        img: './assets/img/sec3.jpg',
         titleDes: 'CƠ HỘI NÀY LÀ CỦA CHÚNG MÌNH',
-        des: 'Là điểm hội tụ của cộng đồng, Highlands Coffee® luôn tìm kiếm những thành viên mới với mong muốn không ngừng hoàn thiện một không gian dành cho tất cả mọi người. Chúng mình luôn chào đón bạn trở thành một phần của Highlands Coffee® để cùng nhau siết chặt thêm những kết nối và sự gắn bó giữa người với người.'
+        des: 'Là điểm hội tụ của cộng đồng, Highlands Coffee® luôn tìm kiếm những thành viên mới với mong muốn không ngừng hoàn thiện một không gian dành cho tất cả mọi người. Chúng mình luôn chào đón bạn trở thành một phần của Highlands Coffee® để cùng nhau siết chặt thêm những kết nối và sự gắn bó giữa người với người.',
+        desDetail:'Chúng mình biết rằng để thành công, bạn muốn làm việc với những đồng nghiệp tuyệt vời, tận hưởng những khoảng thời gian đẹp nhất, hiệu quả nhất, thể hiện được tài năng, đam mê của mình và được là chính mình nhất. Tại cộng đồng Highlands của chúng mình, bạn sẽ được truyền cảm hứng từ các cơ hội việc làm chúng mình có và trở thành phiên bản tốt nhất của chính bản thân trong cộng đồng của chúng mình.\n' +
+          '\n' +
+          'Chúng mình hoàn toàn tin tưởng rằng nhiệm vụ của Highlands là trao quyền cho bạn, hỗ trợ bạn trong quá trình bạn tỏa sáng, tạo kiện tốt nhất để bạn nâng cấp kỹ năng vốn có của bạn cũng như khai phá những tố chất tiềm ẩn để bạn chạm đến PHIÊN BẢN TỐT NHẤT của bản thân. Cho dù bạn mới bắt đầu sự nghiệp hay đang là một chuyên gia có thật nhiều kinh nghiệm, tương lai của bạn đều có thể bắt đầu từ đây để hoàn thiện chính mình trong hành trình chinh phục những thử thách đầy hoài bão.\n' +
+          '\n' +
+          'Bạn đã sẵn sàng để nắm lấy cơ hội kiến tạo sự nghiệp cùng chúng mình để góp sức dựng xây một',
+        text: 'Highlands Coffee® Là Của Chúng Mình?',
+        bonus: 'HÃY CÙNG CHÚNG MÌNH KHÁM PHÁ NHÉ:'
+
       }
     ]
+
+  }
+
+  // lấy ra dữ liệu mà id được click
+  getDataByIdAbout(id: number): Observable<any>{
+    const item: any = this.API.apiAbout.find((item: any) => item.id === id);
+    return of(item)
+  }
+  //lấy ra dữ liệu mà id không được click
+  getOtherDataAbout(id: number): Observable<any[]> {
+    const otherItems: any[] = this.API.apiAbout.filter((item: any) => item.id !== id);
+    return of(otherItems);
+  }
+
+
+  getDataByIdDetail(id: number): Observable<any> {
+    const item = this.API.apimenu.itemsMenu.find((item: any) => item.id === id);
+    return of(item)
   }
 
   getDataById(id: number): Observable<any> {

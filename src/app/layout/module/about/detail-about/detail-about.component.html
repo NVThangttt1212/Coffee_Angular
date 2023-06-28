@@ -1,0 +1,24 @@
+<main class="detailAbout">
+  <section class="detailAbout__slider"
+           [style.background]="'url(' + api.img + ') center / cover no-repeat'">
+  </section>
+  <section class="detailAbout">
+    <div class="detailAbout__content">
+        <h1>{{api.title}}</h1>
+        <p class="detailAbout__content--title">{{api.titleDes}}</p>
+        <span class="detailAbout__content--dv">{{api.text1}}</span>
+        <p>{{api.desDetail}}</p>
+        <span class="detailAbout__content--text">{{api.text}}</span>
+        <span class="detailAbout__content--dv">{{api.text2}}</span>
+        <p>{{api.mxh}}</p>
+        <span>{{api.bonus}}</span>
+    </div>
+    <div class="detailAbout__suggest" >
+      <div  class="detailAbout__suggest--img" *ngFor="let item of apiUnId"
+            (click)="handleItemClick(item.id)">
+          <img [src]="item.img" alt="Item Image">
+        <h2>{{ item.title }}</h2>
+      </div>
+    </div>
+  </section>
+</main>

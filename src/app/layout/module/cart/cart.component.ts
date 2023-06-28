@@ -15,13 +15,13 @@ export class CartComponent implements OnInit{
   productCart: any
   value!:number
   maxQuantity: number = 100;
-  price!: number; // giá trị tiền ban đầu
-  initPrice!: number ;
+  price!: number;
+  initPrice!: number ; // giá trị tiền ban đầu
   isShow : boolean = false
-
   ngOnInit() {
     this.apiProduct.getProduct().subscribe((value) => {
     this.productCart = value;
+
     });
     this.apiProduct.getNumberProduct().subscribe((value)=>{
       this.value = value
@@ -31,7 +31,7 @@ export class CartComponent implements OnInit{
       this.initPrice = value
     })
       this.price = this.initPrice * this.value
-      console.log(this.price)
+
     if(this.initPrice){
       this.isShow = true
     }else {
@@ -45,6 +45,7 @@ export class CartComponent implements OnInit{
       cartElement?.classList.add('open');
     }, 10000);
   }
+
 
   decreaseValue() {
     if (this.value > 1) {

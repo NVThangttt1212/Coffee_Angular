@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit, AfterViewInit{
     this.details = this.ApiServic.API.apiProduct;
     this.route.params.subscribe(params =>{
       this.itemId = +params['id']
-      this.ApiServic.API.apimenu.getDataById(this.itemId).subscribe(
+      this.ApiServic.getDataByIdDetail(this.itemId).subscribe(
         (data:any) => {
           this.productData = data;
         }

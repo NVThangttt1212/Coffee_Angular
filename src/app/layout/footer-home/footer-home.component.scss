@@ -1,7 +1,7 @@
 .footer{
 
   background-color: #53382c;
-  padding: 18px 0 25px;
+  padding: 18px 10% 25px;
   display: flex;
   align-items: center;
   .footer__content{
@@ -13,9 +13,9 @@
         text-decoration: none;
         color:#f1bc7a;
       }
-
     }
     .socialFoot{
+      margin-left: 0px;
       display: flex;
       .socialFootIcon{
         overflow: hidden;

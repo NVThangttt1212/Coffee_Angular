@@ -9,9 +9,10 @@ interface typeDetail{
   image:string
 }
 
-interface ApiMenu {
-  details: { title: string; image: string; price: string; active:boolean}
+interface Api {
+  details: { title: string; image: string; price: string; active:boolean};
   submenu: MenuItem[];
   bonus: { title: string; img: string; }[];
-  itemsMenu:{ title: string; img: string; backgroudImg: string; description: String}
+  itemsMenu:{ title: string; img: string; backgroudImg: string; description: string};
+  apiAbout: {title: string; img: string; id: number, des:string, bg: string, titleDes: string}
 }

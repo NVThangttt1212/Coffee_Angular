@@ -1,7 +1,8 @@
 <div class="about">
   <section class="about__section" *ngFor="let item of apiAbout; let index = index"
-  [ngStyle]="{'background-color': '#' + item.bg}">
-    <div class="about__section--text" [ngStyle]="{'justify-content': (index + 1) % 2 === 0 ? 'flex-start' : 'flex-end'}">
+
+           [ngStyle]="{'background-color': '#' + item.bg}">
+    <div class="about__section--text" [ngClass]="{'item2': index === 1, 'item3': index  === 2}" [ngStyle]="{'justify-content': (index + 1) % 2 === 0 ? 'flex-start' : 'flex-end'}">
       <div class="about__section--text-content">
         <div class="about__section--text-heading">
           <h1 [ngStyle]="{'justify-content': (index + 1) % 2 === 0 ? 'flex-end' : 'flex-start',
@@ -12,12 +13,12 @@
         </div>
         <div class="about__section--text-btn" [ngStyle]="{'justify-content': (index + 1) % 2 === 0 ? 'flex-end' : 'flex-start'}">
           <button [ngStyle]="{'color': index === 0 ? '#b22830' : '#fff',
-                    'border': index === 0 ? '1px solid #b22830' : '1px solid #fff'}">
+                    'border': index === 0 ? '1px solid #b22830' : '1px solid #fff'}"
+                  [routerLink]="['/detailAbout', item.id]">
             Xem chi tiết
           </button>
         </div>
       </div>
-
     </div>
     <div class="about__section--img">
         <img src="{{item.img}}">

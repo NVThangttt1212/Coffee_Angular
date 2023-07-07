@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import {ApiService} from "../../../shared/servic/api.service";
-import {AuthGuard} from "../../../shared/servic/AuthGuard";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-buy',
@@ -13,11 +13,12 @@ export class BuyComponent implements OnInit,OnChanges{
   constructor(private ApiProduct: ApiService,
               private route: ActivatedRoute,
               private rou: Router,
-              private snackbar: MatSnackBar) {
+              private snackbar: MatSnackBar,
+              private http: HttpClient) {
   }
   value: number = 1;
   productId!: number;
-  productData :any;
+  productData :any = {};
   maxQuantity: number = 100;
 
   ngOnChanges(changes: SimpleChanges) {
@@ -30,9 +31,11 @@ export class BuyComponent implements OnInit,OnChanges{
       }
     }
   }
+  size!: string;
+  SizeValuePrive!: number;
+  initialSizeValuePrive!: number;//giá tiền ban đầu
 
-  SizeValuePrive!: number
-  initialSizeValuePrive!: number;
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.productId = +params['id'];
@@ -42,11 +45,50 @@ export class BuyComponent implements OnInit,OnChanges{
         }
       );
     });
-
     this.ApiProduct.getSelectedSizeValue().subscribe((value: number) => {
       this.SizeValuePrive = value
       this.initialSizeValuePrive = value;
     });
+
+    this.ApiProduct.getSize().subscribe((value: string)=>
+    this.size = value)
+  }
+  cartProduct = {
+    title: this.productData.title,
+    img: this.productData.image,
+    value: this.value,
+    price: this.SizeValuePrive,
+    size: this.size
+  }
+  clickAddProduct() {
+    const url = 'http://localhost:3000/ApiCart';
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    // Cập nhật giá trị của cartProduct
+    this.cartProduct = {
+      title: this.productData.title,
+      img: this.productData.image,
+      value: this.value,
+      price: this.SizeValuePrive,
+      size: this.size
+    };
+
+    const body = this.cartProduct;
+    this.http.post(url, body, { headers }).subscribe(
+      response => {
+        console.log('Phản hồi từ server:', response);
+      },
+      error => {
+        console.error('Post thất bại:', error);
+      }
+    );
+    this.showToastAddCard()
+    setTimeout(()=>{
+      this.rou.navigate(['cart'])
+    },2000)
+
   }
   decreaseValue() {
     if (this.value > 1) {
@@ -70,7 +112,6 @@ export class BuyComponent implements OnInit,OnChanges{
     }
   }
 
-
   onInputKeydown(event: KeyboardEvent) {
     if (event.key === '+' && this.value >= 100) {
       event.preventDefault();
@@ -89,15 +130,7 @@ export class BuyComponent implements OnInit,OnChanges{
     }
   }
 
-  clickAddProduct() {
-    this.ApiProduct.setCard(this.value);
-    this.showToastAddCard()
-    this.ApiProduct.setProduct(this.productData)
-    this.ApiProduct.setNumberProduct(this.value)
-    setTimeout(()=>{
-      this.rou.navigate(['cart'])
-    },2000)
-  }
+
   showToastAddCard() {
     this.snackbar.open('Thêm vào giỏ hàng thành công!', 'Đóng', {
       duration: 3000,

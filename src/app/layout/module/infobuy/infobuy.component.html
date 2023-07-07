@@ -1,0 +1,96 @@
+<main class="infobuy">
+  <section class="infobuy__Delivery">
+      <div class="infobuy__Delivery--logo">
+        <img src="assets/img/logobuy.webp">
+      </div>
+      <div class="infobuy__Delivery--infomation">
+        <div class="infobuy__Delivery--infomation-left">
+          <div class="infomation__left--heading">
+            <h3>Thông tin nhận hàng</h3>
+          </div>
+          <form [formGroup]="buyForm" (ngSubmit)="submit()">
+            <mat-form-field class="example-full-width width">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="emailFormControl" placeholder="Vui lòng nhập email của bạn!">
+              <mat-error class="error" *ngIf="(buyForm.get('emailFormControl')?.invalid
+                                        && (buyForm.get('emailFormControl')?.dirty
+                                        || buyForm.get('emailFormControl')?.touched))
+                                        || (buyForm.get('emailFormControl')?.value )">
+                <span *ngIf="buyForm?.get('emailFormControl')?.hasError('required')">Email không được bỏ trống</span>
+                <span *ngIf="buyForm?.get('emailFormControl')?.hasError('minlength')">Độ dài tối thiểu là 6 ký tự</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width width">
+              <mat-label>Họ và tên</mat-label>
+              <input type="text" matInput formControlName="FullNameFormControl" placeholder="Nhập họ và tên của bạn!">
+              <mat-error class="error" *ngIf="(buyForm.get('FullNameFormControl')?.invalid
+                                        && (buyForm.get('FullNameFormControl')?.dirty
+                                        || buyForm.get('FullNameFormControl')?.touched))
+                                        || (buyForm.get('FullNameFormControl')?.value )">
+                <span *ngIf="buyForm?.get('FullNameFormControl')?.hasError('required')">Họ và tên không được bỏ trống</span>
+                <span *ngIf="buyForm?.get('FullNameFormControl')?.hasError('minlength')">Độ dài tối thiểu là 6 ký tự</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width width">
+              <mat-label>Số điện thoại</mat-label>
+              <input type="text" matInput formControlName="PhoneFormControl" placeholder="Nhập số điện thoại của bạn!">
+              <mat-error class="error" *ngIf="(buyForm.get('PhoneFormControl')?.invalid
+                                        && (buyForm.get('PhoneFormControl')?.dirty
+                                        || buyForm.get('PhoneFormControl')?.touched))
+                                        || (buyForm.get('PhoneFormControl')?.value )">
+                <span *ngIf="buyForm?.get('PhoneFormControl')?.hasError('required')">Trường này không được bỏ trống</span>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width width">
+              <mat-label>Địa Chỉ</mat-label>
+              <input type="text" matInput formControlName="AddressFormControl" placeholder="Nhập địa chỉ của bạn!">
+              <mat-error class="error" *ngIf="(buyForm.get('AddressFormControl')?.invalid
+                                        && (buyForm.get('AddressFormControl')?.dirty
+                                        || buyForm.get('AddressFormControl')?.touched))
+                                        || (buyForm.get('AddressFormControl')?.value )">
+                <span *ngIf="buyForm?.get('AddressFormControl')?.hasError('required')">Địa chỉ không được bỏ trống</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="width">
+              <mat-label>Tỉnh thành</mat-label>
+              <mat-select formControlName="selectedCity" (change)="changeCity($event)">
+                <mat-option [value]="data.city" *ngFor="let data of vietnam">{{data.city}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="width">
+              <mat-label>Quận Huyện</mat-label>
+              <mat-select formControlName="selectedDistrict">
+                <mat-option [value]="district" *ngFor="let district of selectedDistricts">{{district}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button type="submit">submit</button>
+
+          </form>
+
+        </div>
+        <div class="infobuy__Delivery--infomation-right">
+          <div class="infomation__right--heading">
+            <h3>Vận chuyển</h3>
+            <div class="infomation__right--alert">
+              Vui lòng nhập thông tin khi nhận hàng
+            </div>
+          </div>
+          <div class="infomation__right--heading">
+            <h3>Thanh toán</h3>
+            <div class="infomation__right--buy">
+              <div style="display: flex; justify-content: center; align-items: center">
+                <mat-checkbox></mat-checkbox>
+              </div>
+              <span>Thanh toán khi nhận hàng</span>
+              <i class="fas fa-money-bill-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <section class="infobuy__cart">
+
+  </section>
+</main>

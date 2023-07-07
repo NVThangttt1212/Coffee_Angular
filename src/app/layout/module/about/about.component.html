@@ -1,5 +1,5 @@
 <div class="about">
-  <section class="about__section" *ngFor="let item of apiAbout; let index = index"
+  <section class="about__section" *ngFor="let item of apiabout; let index = index"
 
            [ngStyle]="{'background-color': '#' + item.bg}">
     <div class="about__section--text" [ngClass]="{'item2': index === 1, 'item3': index  === 2}" [ngStyle]="{'justify-content': (index + 1) % 2 === 0 ? 'flex-start' : 'flex-end'}">

@@ -8,6 +8,7 @@ import { DetailsComponent} from "./layout/module/menu/details/details.component"
 import { DetailProductComponent} from "./layout/module/menu/details/detail-product/detail-product.component";
 import { CartComponent} from "./layout/module/cart/cart.component";
 import {DetailAboutComponent} from "./layout/module/about/detail-about/detail-about.component";
+import {InfobuyComponent} from "./layout/module/infobuy/infobuy.component";
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'buy/:id', component: BuyComponent, canActivate: [AuthGuard]}, //
   { path: 'detail/:id', component: DetailsComponent},
   { path: 'detailProduct/:id', component: DetailProductComponent},
-  { path: 'cart', component: CartComponent}
+  { path: 'cart', component: CartComponent},
+  { path: 'infoBuy/:id', component: InfobuyComponent}
 ];
 
 @NgModule({

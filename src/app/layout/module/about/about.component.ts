@@ -21,9 +21,11 @@ export class AboutComponent implements OnInit{
               private route: Router) {}
 
   // các biến----------------------------------------------
-  apiAbout: typeApiAbout[] = []
+  apiabout: typeApiAbout[] = []
   ngOnInit() {
-    this.apiAbout = this.ApiAbout.API.apiAbout
+    this.ApiAbout.getData().subscribe(result =>{
+      this.apiabout = result.apiAbout
+    })
   }
 
 

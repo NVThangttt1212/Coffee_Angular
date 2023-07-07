@@ -15,19 +15,20 @@ export class HeaderComponent implements OnInit{
               private route : Router
               ) {}
 
-
-  submenu = this.apimenu.API.apimenu.submenu
-  bonus = this.apimenu.API.apimenu.bonus
-
+  submenu :any[] = []
+  bonus :any[] = []
   card!: number;
 
+
   ngOnInit() {
-    this.apimenu.getCard().subscribe((value) => {
+    this.apimenu.getNumberProduct().subscribe((value) => {
       this.card = value;
     });
+    this.apimenu.getData().subscribe(result =>{
+      this.submenu = result.apimenu.submenu;
+      this.bonus = result.apimenu.bonus
+    })
   }
-
-
   isShow(): boolean {
     return this.auth.getShow();
   }

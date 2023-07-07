@@ -16,6 +16,8 @@ export class MutualComponent implements OnInit{
 
   api: apiType[] =[]
   ngOnInit() {
-    this.api = this.apimutual.API.apiMutual
+    this.apimutual.getData().subscribe(result =>{
+      this.api = result.apiMutual
+    })
   }
 }

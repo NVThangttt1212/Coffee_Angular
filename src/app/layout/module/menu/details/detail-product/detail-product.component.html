@@ -15,15 +15,15 @@
       </p>
       <div class="product__content--right-size" #sizeElements>
         <div>Size : </div>
-        <span class="active" (click)="handleClickSize($event, 'sizeS')">S</span>
-        <span (click)="handleClickSize($event, 'sizeM')">M</span>
-        <span (click)="handleClickSize($event, 'sizeL')">L</span>
+        <span class="active" (click)="handleClickSize($event, 'size S')">S</span>
+        <span (click)="handleClickSize($event, 'size M')">M</span>
+        <span (click)="handleClickSize($event, 'size L')">L</span>
       </div>
       <div class="product__content--right-buy">
         <div>Giá : </div>
-        <span [class.activePrice]="isActive('sizeS')">{{productData.price.sizeS | tien}} VNĐ</span>
-        <span [class.activePrice]="isActive('sizeM')">{{productData.price.sizeM | tien}} VNĐ</span>
-        <span [class.activePrice]="isActive('sizeL')">{{productData.price.sizeL | tien}} VNĐ</span>
+        <span [class.activePrice]="isActive('size S')">{{productData.price.sizeS | tien}} VNĐ</span>
+        <span [class.activePrice]="isActive('size M')">{{productData.price.sizeM | tien}} VNĐ</span>
+        <span [class.activePrice]="isActive('size L')">{{productData.price.sizeL | tien}} VNĐ</span>
       </div>
       <div class="product__content--right-btn">
         <button mat-button [routerLink]="['/buy', productData.id]" (click)="valuePrice()">Mua Ngay</button>

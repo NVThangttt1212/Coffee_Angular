@@ -35,7 +35,8 @@ export class NewsComponent implements OnInit{
     }
   }
   ngOnInit() {
-    this.ApiNew = this.ApiNews.API.ApiNews
-    console.log(this.ApiNew)
+    this.ApiNews.getData().subscribe(result =>{
+      this.ApiNew = result.ApiNews
+    })
   }
 }

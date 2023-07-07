@@ -1,5 +1,5 @@
 <div class="menu">
-  <section class="section" *ngFor="let item of itemsMenu"
+  <section class="section" *ngFor="let item of itemsmenu"
            [style.background]="'url(' + item.backgroudImg + ') center / cover no-repeat'">
     <div class="section__text" [ngClass]="{'animation': isAnimation}">
       <div class="section__text--heading">
@@ -20,3 +20,7 @@
   </section>
   <app-scroll-top></app-scroll-top>
 </div>
+
+<app-test [isTest]="false">
+  <h1>đây là phần được thêm vào</h1>
+</app-test>

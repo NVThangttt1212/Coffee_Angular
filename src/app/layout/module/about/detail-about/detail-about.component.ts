@@ -36,14 +36,12 @@ export class DetailAboutComponent implements OnInit{
       this.ApiAbout.getDataByIdAbout(this.id).subscribe(
         (data: any) => {
           this.api = data;
-          console.log(this.api);
         }
       );
     });
     this.ApiAbout.getOtherDataAbout(this.id).subscribe(
       (data: typeApiAbout[]) => {
         this.apiUnId = data;
-        console.log(this.apiUnId)
       }
     );
   }
@@ -54,7 +52,6 @@ export class DetailAboutComponent implements OnInit{
       this.api = data;
       this.router.navigate(['/detailAbout', id]);
     });
-
     this.ApiAbout.getOtherDataAbout(id).subscribe((data: typeApiAbout[]) => {
       this.apiUnId = data;
     });

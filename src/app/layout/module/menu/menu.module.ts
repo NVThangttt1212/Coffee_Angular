@@ -8,7 +8,7 @@ import { DetailsComponent } from './details/details.component';
 import { ScrollAnimationDirective} from "../../../shared/directives/scroll-animation.directive";
 import { DetailProductComponent } from './details/detail-product/detail-product.component';
 import { MatButtonModule } from "@angular/material/button";
-import { ShareModuleModule} from "../../../shared/share-module/share-module.module";
+import { ShareModuleModule } from "../../../shared/share-module/share-module.module";
 
 @NgModule({
     declarations: [
@@ -23,7 +23,7 @@ import { ShareModuleModule} from "../../../shared/share-module/share-module.modu
     FormsModule,
     ScrollTopModule,
     MatButtonModule,
-    ShareModuleModule
+    ShareModuleModule,
   ]
 })
 export class MenuModule { }

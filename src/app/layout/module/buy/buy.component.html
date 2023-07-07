@@ -19,8 +19,13 @@
                      (keydown)="onInputKeydown($event)">
               <input class="plus" type="button" value="+" (click)="increaseValue()">
             </div>
+
             <button (click)="clickAddProduct()">Thêm vào giỏ hàng</button>
           </div>
+          <div class="buy__content--size">
+            <span >{{size}}</span>
+          </div>
+
         </div>
       </div>
     </div>
@@ -28,6 +33,4 @@
     <h2>tổng tiền : {{SizeValuePrive | tien}} VNĐ</h2>
   </div>
   </div>
-
-
 </div>

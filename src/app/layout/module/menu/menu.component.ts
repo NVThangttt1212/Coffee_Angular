@@ -1,7 +1,7 @@
 import {AfterContentInit, AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import { ElementRef } from '@angular/core';
 import {ApiService} from "../../../shared/servic/api.service";
-import {ActivatedRoute} from "@angular/router";
+
 interface MenuItem {
   id: number;
   title: string;
@@ -18,11 +18,13 @@ interface MenuItem {
 })
 export class MenuComponent implements OnInit, AfterViewInit{
   constructor(private apimenuServic: ApiService) {}
-  itemsMenu!: MenuItem[];
+  itemsmenu!: MenuItem[];
   isAnimation: boolean = false
 
   ngOnInit() {
-    this.itemsMenu = this.apimenuServic.API.apimenu.itemsMenu;
+    this.apimenuServic.getData().subscribe(result =>{
+      this.itemsmenu = result.apimenu.itemsMenu
+    })
 
   }
   ngAfterViewInit() {

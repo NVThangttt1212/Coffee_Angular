@@ -21,7 +21,10 @@ export class DetailsComponent implements OnInit, AfterViewInit{
               private ApiServic : ApiService) {}
 
   ngOnInit() {
-    this.details = this.ApiServic.API.apiProduct;
+    this.ApiServic.getData().subscribe(result =>{
+      this.details = result.apiProduct
+
+    });
     this.route.params.subscribe(params =>{
       this.itemId = +params['id']
       this.ApiServic.getDataByIdDetail(this.itemId).subscribe(

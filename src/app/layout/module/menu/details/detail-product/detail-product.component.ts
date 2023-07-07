@@ -18,24 +18,24 @@ export class DetailProductComponent implements OnInit{
 
   productId!: number;
   productData :any;
+
+
+  // đoạn này phải post thêm vào api cart
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.productId = +params['id'];
       this.ApiProduct.getDataById(this.productId).subscribe(
         (data:any) => {
           this.productData = data;
-
         }
       );
     });
-
   }
 
   // handle click size
-  activeSize: string = 'sizeS'
+  activeSize: string = 'size S'
   handleClickSize(event: Event, si: string){
     this.activeSize = si;
-
     const target = event.target as HTMLSpanElement;
     const size = this.sizeElements.nativeElement.querySelectorAll('span')
 
@@ -48,6 +48,12 @@ export class DetailProductComponent implements OnInit{
     })
 
   }
+  valuePrice(){
+    const size = this.activeSize
+    console.log(this.activeSize)
+    this.ApiProduct.setSize(size)
+    this.ApiProduct.setSelectedSizeValue(this.getSelectedSizeValue())
+  }
   isActive(size: string): boolean {
     return this.activeSize === size;
   }
@@ -56,21 +62,19 @@ export class DetailProductComponent implements OnInit{
       window.history.back()
   }
 
-  valuePrice(){
-    this.ApiProduct.setSelectedSizeValue(this.getSelectedSizeValue())
-  }
+
 
   getSelectedSizeValue(): number {
     let selectedSizeValue = 0;
     if (this.productData && this.productData.price) {
       switch (this.activeSize) {
-        case 'sizeS':
+        case 'size S':
           selectedSizeValue = this.productData.price.sizeS;
           break;
-        case 'sizeM':
+        case 'size M':
           selectedSizeValue = this.productData.price.sizeM;
           break;
-        case 'sizeL':
+        case 'size L':
           selectedSizeValue = this.productData.price.sizeL;
           break;
       }

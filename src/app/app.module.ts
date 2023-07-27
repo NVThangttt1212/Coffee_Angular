@@ -17,13 +17,18 @@ import { MatIconModule} from "@angular/material/icon";
 import { MatButtonModule} from "@angular/material/button";
 import { CartComponent } from './layout/module/cart/cart.component';
 import { ShareModuleModule} from "./shared/share-module/share-module.module";
-import { HttpClientModule } from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { InfobuyComponent } from './layout/module/infobuy/infobuy.component';
 import { MatInputModule} from "@angular/material/input";
 import { MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { MatCheckboxModule} from "@angular/material/checkbox";
 import { MatSelectModule} from "@angular/material/select";
 
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
     declarations: [
@@ -33,7 +38,6 @@ import { MatSelectModule} from "@angular/material/select";
         BuyComponent,
         CartComponent,
         InfobuyComponent,
-
     ],
   imports: [
     BrowserModule,
@@ -49,18 +53,25 @@ import { MatSelectModule} from "@angular/material/select";
     MatButtonModule,
     FormsModule,
     ShareModuleModule,
-    HttpClientModule,
     MatInputModule,
     MatSlideToggleModule,
     MatCheckboxModule,
-    MatSelectModule
 
+    MatSelectModule,
+
+    HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
 
   ],
     providers: [],
-    exports: [
-
-    ],
+    exports: [],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

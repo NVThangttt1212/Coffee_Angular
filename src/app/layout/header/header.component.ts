@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {AuthService} from "../../shared/servic/auth.service";
 import {ApiService} from "../../shared/servic/api.service";
 import {AuthGuard} from "../../shared/servic/AuthGuard";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ import {AuthGuard} from "../../shared/servic/AuthGuard";
 export class HeaderComponent implements OnInit{
   constructor(private auth: AuthService,
               private apimenu: ApiService,
-              private route : Router
+              private route : Router,
+              private translate: TranslateService
               ) {}
 
   submenu :any[] = []
@@ -45,5 +47,13 @@ export class HeaderComponent implements OnInit{
 
   clickCart(){
     this.route.navigate(['cart'])
+  }
+
+  //handle Language
+  switchToVietnamese(): void {
+    this.translate.use('vi');
+  }
+  switchToEnglish(): void {
+    this.translate.use('en');
   }
 }

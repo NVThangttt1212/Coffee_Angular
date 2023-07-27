@@ -364,7 +364,7 @@
           "des": "Trà là thức uống phổ biến thứ 2 trên thế giới, chỉ sau nước. Tất cả các loại trà trên thế giới đều được làm từ một loại cây, gọi là cây trà (Cemellia Senensis), mọc trên các cao nguyên vùng nhiệt đới. Mặc dù là loài thân gỗ nhưng khi canh tác người ta thường trồng trà thành luống và liên tục đốn cắt để cây chỉ thấp ngang bụng, dễ thu hoạch búp và cho năng suất cao.'Trà vằng, trà vối, trà atiso, trà cung đình Huế… không phải là trà vì không làm từ cây trà.",
           "img": "./assets/img/hoho.png",
           "colorText": "fff",
-          "backgoudImg": "../../../../assets/img/bg33.jpg",
+          "backgroudImg": "../../../../assets/img/bg33.jpg",
           "description": "Sự kết hợp hoàn hảo giữa hạt cà phê Robusta & Arabica thượng hạng được trồng trên những vùng cao nguyên Việt Nam màu mỡ, qua những bí quyết rang xay độc đáo, Highlands Coffee chúng tôi tự hào giới thiệu những dòng sản phẩm Cà phê mang hương vị đậm đà và tinh tế."
         }
       ]
@@ -590,14 +590,6 @@
     ]
   },
   "ApiCart": [
-    {
-      "title": "bạc xỉu",
-      "img": "./assets/img/3c.jpg",
-      "value": 1,
-      "price": 60000,
-      "size": "size M",
-      "id": 2
-    },
     {
       "title": "americano",
       "img": "./assets/img/2c.jpg",
